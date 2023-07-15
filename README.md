@@ -12,7 +12,7 @@ We will provide the code used for this work. If you find this paper useful, plea
 
 **Reference**:  
 
-> Mingde Yao*, Jie Huang*, Xin Jin, Ruikang Xu, Shenglong Zhou, Man Zhou, and Zhiwei Xiong, "Generalized Lightness Adaptation with Channel Selective Normalization",
+> Mingde Yao, Jie Huang, Xin Jin, Ruikang Xu, Shenglong Zhou, Man Zhou, and Zhiwei Xiong, "Generalized Lightness Adaptation with Channel Selective Normalization",
 > *Proceedings of the IEEE international conference on computer vision (ICCV)*, 2023.
 
 
