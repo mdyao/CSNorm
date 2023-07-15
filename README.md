@@ -4,7 +4,7 @@
 
 University of Science and Technology of China (USTC)
 
-:rocket: This is the official repository of Generalized Lightness Adaptation with Channel Selective Normalization (ICCV 2023). 
+:rocket: Welcome! This is the official repository of Generalized Lightness Adaptation with Channel Selective Normalization (ICCV 2023). 
 
 **Our approach purposely normalizes the statistics of lightness-relevant channels and keeps other channels unchanged, so as to improve feature generalization and discrimination.**
 
@@ -15,6 +15,8 @@ We will provide the code used for this work. If you find this paper useful, plea
 > Mingde Yao, Jie Huang, Xin Jin, Ruikang Xu, Shenglong Zhou, Man Zhou, and Zhiwei Xiong, "Generalized Lightness Adaptation with Channel Selective Normalization",
 > *Proceedings of the IEEE international conference on computer vision (ICCV)*, 2023.
 
+## Overview
+![image](https://github.com/mdyao/CSN-Net-ICCV2023/assets/33108887/f4c9b327-51fa-4832-8069-ab6919100277)
 
 ## Codes
 
