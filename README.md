@@ -8,7 +8,7 @@ University of Science and Technology of China (USTC)
 
 **Our approach purposely normalizes the statistics of lightness-relevant channels and keeps other channels unchanged, so as to improve feature generalization and discrimination.**
 
-We will provide the code used for this work. If you find this paper useful, please :star:star this repo  and :page_facing_up:cite our paper .
+We will provide the code used for this work. If you find this paper useful, please :star:star this repo  and :page_facing_up:cite our paper.
 
 **Reference**:  
 
