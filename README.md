@@ -30,13 +30,24 @@ University of Science and Technology of China (USTC)
 Overview of our proposed method. (a) Channel selective normalization (CSN), which consists of an instance-level normalization module and a differential gating module. (b) Differential gating module. It outputs a series of on-off switch gates for binarized channel selection in CSN. (c) Alternating training strategy. In the first step, we optimize the parameters outside the CSN to keep an essential ability for lightness adaptation. In the second step, we only update the parameters inside the CSN  (see (a)\&(b)) with lightness-perturbed images. The two steps drive the CSN to select channels sensitive to lightness changes, which are normalized in $x_{n+1}$. 
 
 
+
 ## :star: News
+
 * August. 18, 2023: We release the core code of our algorithm.
 <!--, including the implementation of network architecture and training strategy.  ### Highlights
 * More models and configurations will be open source soon, we need some time to organize our data and code. -->
 
 
-## Codes
+
+##  :sunflower: Results
+
+![image-20230817235035699](README/image-20230817235035699.png)
+
+Visual comparisons of the generalized image retouching on the MIT-Adobe FiveK  dataset. The models are trained on the original dataset and tested on the scaled lightness condition.  
+
+
+
+## :rocket: Usage
 
 <!-- This repository is the **official implementation** of the paper, "Generalized Lightness Adaptation with Channel Selective Normalization", where more implementation details are presented. -->
 
