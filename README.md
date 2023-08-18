@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# [ICCV 2023] Generalized Lightness Adaptation with Channel Selective Normalization.
+# [ICCV 2023:fire:] Generalized Lightness Adaptation with Channel Selective Normalization.
 
 [Mingde Yao](https://scholar.google.com/citations?user=fsE3MzwAAAAJ&hl=en)\*, [Jie Huang](https://huangkevinj.github.io/)\*, [Xin Jin](http://home.ustc.edu.cn/~jinxustc/), [Ruikang Xu](https://scholar.google.com/citations?user=PulrrscAAAAJ&hl=en), Shenglong Zhou, [Man Zhou](https://manman1995.github.io/), [Zhiwei Xiong](http://staff.ustc.edu.cn/~zwxiong/)
 
@@ -22,12 +22,12 @@ University of Science and Technology of China (USTC)
 
 ## 📌 Overview
 
->Lightness adaptation is vital to the success of image processing to avoid unexpected visual deterioration, which covers multiple aspects, e.g., low-light image enhancement, image retouching, and inverse tone mapping. Existing methods typically work well on their trained lightness conditions but perform poorly in unknown ones due to their limited generalization ability. To address this limitation, we propose a novel generalized lightness adaptation algorithm that extends conventional normalization techniques through a channel filtering design, dubbed Channel Selective Normalization (CSN). The proposed CSN purposely normalizes the statistics of lightness-relevant channels and keeps other channels unchanged, so as to improve feature generalization and discrimination. To optimize CSN, we propose an alternating training strategy that effectively identifies lightness-relevant channels. The model equipped with our CSN only needs to be trained on one lightness condition and can be well generalized to unknown lightness conditions. Experimental results on multiple benchmark datasets demonstrate the effectiveness of CSN in enhancing the generalization ability for the existing lightness adaptation methods. 
+>Lightness adaptation is vital to the success of image processing to avoid unexpected visual deterioration, which covers multiple aspects, e.g., low-light image enhancement, image retouching, and inverse tone mapping. Existing methods typically work well on their trained lightness conditions but perform poorly in unknown ones due to their limited generalization ability. To address this limitation, we propose a novel generalized lightness adaptation algorithm that extends conventional normalization techniques through a channel filtering design, dubbed Channel Selective Normalization (CSNorm). The proposed CSNorm purposely normalizes the statistics of lightness-relevant channels and keeps other channels unchanged, so as to improve feature generalization and discrimination. To optimize CSNorm, we propose an alternating training strategy that effectively identifies lightness-relevant channels. The model equipped with our CSNorm only needs to be trained on one lightness condition and can be well generalized to unknown lightness conditions. Experimental results on multiple benchmark datasets demonstrate the effectiveness of CSNorm in enhancing the generalization ability for the existing lightness adaptation methods. 
 
 
-![image](https://github.com/mdyao/CSN-Net-ICCV2023/assets/33108887/f4c9b327-51fa-4832-8069-ab6919100277)
+![image](https://github.com/mdyao/CSNorm/assets/33108887/f4c9b327-51fa-4832-8069-ab6919100277)
 
-Overview of our proposed method. (a) Channel selective normalization (CSN), which consists of an instance-level normalization module and a differential gating module. (b) Differential gating module. It outputs a series of on-off switch gates for binarized channel selection in CSN. (c) Alternating training strategy. In the first step, we optimize the parameters outside the CSN to keep an essential ability for lightness adaptation. In the second step, we only update the parameters inside the CSN  (see (a)\&(b)) with lightness-perturbed images. The two steps drive the CSN to select channels sensitive to lightness changes, which are normalized in $x_{n+1}$. 
+Overview of our proposed method. (a) Channel selective normalization (CSNorm), which consists of an instance-level normalization module and a differential gating module. (b) Differential gating module. It outputs a series of on-off switch gates for binarized channel selection in CSNorm. (c) Alternating training strategy. In the first step, we optimize the parameters outside CSNorm to keep an essential ability for lightness adaptation. In the second step, we only update the parameters inside the CSNorm (see (a)&(b)) with lightness-perturbed images. The two steps drive the CSNorm to select channels sensitive to lightness changes, which are normalized in $x_{n+1}$. 
 
 
 <!--
