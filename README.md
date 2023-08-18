@@ -41,7 +41,7 @@ Overview of our proposed method. (a) Channel selective normalization (CSNorm), w
 
 ##  :sunflower: Results
 
-![image-20230817235035699](README/image-20230817235035699.png)
+![image-20230818115344581](README/image-20230818115344581.png)
 
 Visual comparisons of the generalized image retouching on the MIT-Adobe FiveK  dataset. The models are trained on the original dataset and tested on the unseen lightness condition.  
 
