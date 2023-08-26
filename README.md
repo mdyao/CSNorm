@@ -52,14 +52,74 @@ Visual comparisons of the generalized image retouching on the MIT-Adobe FiveK  d
 <!-- This repository is the **official implementation** of the paper, "Generalized Lightness Adaptation with Channel Selective Normalization", where more implementation details are presented. -->
 
 
-More details will be updated recently. 
+To train the model equipped with CSNorm:
+
+1. Modify the paths for training and testing in the configuration file (options/train/train_InvDN.yml).
+2. Execute the command "python train.py -opt options/train/train_InvDN.yml".
+3. Drink a cup of coffee or have a nice sleep.
+4. Get the trained model. 
+
+
+We employ the [NAFNet](https://github.com/mdyao/CSNorm/blob/62056d2ba45c6ab356a29e4a155d2f72c4c87beb/models/modules/NAFNet/NAFNet.py) as our base model, demonstrating the integration of CSNorm. 
+
+Feel free to replace NAFNet with your preferred backbone when incorporating CSNorm:
+
+
+1. Define the on-off switch gate function, where CHANNEL_NUM should be pre-defined.
+
+```
+
+class Generate_gate(nn.Module):
+    def __init__(self):
+        super(Generate_gate, self).__init__()
+        self.proj = nn.Sequential(nn.AdaptiveAvgPool2d(1),
+                                  nn.Conv2d(CHANNEL_NUM,CHANNEL_NUM, 1),
+                                  nn.ReLU(),
+                                  nn.Conv2d(CHANNEL_NUM,CHANNEL_NUM, 1),
+                                  nn.ReLU())
+
+        self.epsilon = 1e-8
+    def forward(self, x):
+
+
+        alpha = self.proj(x)
+        gate = (alpha**2) / (alpha**2 + self.epsilon)
+
+        return gate
+
+
+def freeze_direct(layer):
+    for param in layer.parameters():
+        param.requires_grad = False
+
+```
+
+2. Initialize CSNorm in the `__init__()` Method, where CHANNEL_NUM should be pre-defined.:
+
+```
+self.gate = Generate_gate()
+for i in range(CHANNEL_NUM):
+    setattr(self, 'CSN_' + str(i), nn.InstanceNorm2d(1, affine=True))
+    freeze_direct(getattr(self, 'CSN_' + str(i)))
+freeze(self.gate)
+```
+
+3. Integrate the Code in the `forward()` Method of Your Backbone, where CHANNEL_NUM should be pre-defined.
+
+```
+x = conv(x)
+...
+gate = self.gate(x)
+lq_copy = torch.cat([getattr(self, 'CSN_' + str(i))(x[:,i,:,:][:,None,:,:]) for i in range(CHANNEL_NUM)], dim=1)
+x = gate * (x) + (1-gate) * x
+```
 
 
 ## :heart: Citing Us
 If you find this repository or our work useful, please consider giving a star :star: and citation :t-rex:, which would be greatly appreciated:
 
 ```bibtex
-@inproceedings{yao2023csnnet,
+@inproceedings{yao2023csnorm,
 	title={Generalized Lightness Adaptation with Channel Selective Normalization},
 	author={Mingde Yao, Jie Huang, Xin Jin, Ruikang Xu, Shenglong Zhou, Man Zhou, and Zhiwei Xiong},
 	booktitle={Proceedings of the IEEE International Conference on Computer Vision},
