@@ -87,6 +87,11 @@ class Generate_gate(nn.Module):
 
         return gate
 
+def freeze(layer):
+    for child in layer.children():
+        for param in child.parameters():
+            param.requires_grad = False
+
 
 def freeze_direct(layer):
     for param in layer.parameters():
