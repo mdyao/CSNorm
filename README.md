@@ -8,7 +8,7 @@
 University of Science and Technology of China (USTC)
 
 
-[[`Paper`](http://home.ustc.edu.cn/~mdyao/ICCV_2023_CS_Norm.pdf)] [[`BibTeX`](#heart-citing-us)] :zap: :rocket: :fire:
+[[`Paper`](https://arxiv.org/pdf/2308.13783.pdf)] [[`BibTeX`](#heart-citing-us)] :zap: :rocket: :fire:
 
 [![python](https://img.shields.io/badge/-Python_3.8_%7C_3.9_%7C_3.10-blue?logo=python&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![pytorch](https://img.shields.io/badge/PyTorch-ee4c2c?logo=pytorch&logoColor=white)](https://pytorch.org/get-started/locally/)
