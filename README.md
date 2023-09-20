@@ -120,7 +120,7 @@ x = conv(x)
 ...
 gate = self.gate(x)
 lq_copy = torch.cat([getattr(self, 'CSN_' + str(i))(x[:,i,:,:][:,None,:,:]) for i in range(CHANNEL_NUM)], dim=1)
-x = gate * x + (1-gate) * x
+x = gate * lq_copy + (1-gate) * x
 ```
 
 
