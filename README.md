@@ -141,4 +141,4 @@ If you find this repository or our work useful, please consider giving a star :s
 
 <!-- If you have any problem with the released code, please do not hesitate to open an issue.-->
 
-For any inquiries or questions, please contact me by email (mdyao@mail.ustc.edu.cn) or [WeChat](https://user-images.githubusercontent.com/33108887/225539514-7c10ccc7-0710-4d7a-8a09-643cf3832d53.png). 
+For any inquiries or questions, please contact me by email (mdyao@mail.ustc.edu.cn). 

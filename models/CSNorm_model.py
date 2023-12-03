@@ -44,7 +44,7 @@ class CSNorm_Model(BaseModel):
             name for name, param in self.netG.named_parameters()
             if target_layer_patterns.search(name)
         ]
-        print('parameters in CSNorm:',self.layer_aug)
+        # print('parameters in CSNorm:',self.layer_aug)
         ######################### set parameters in CSNorm ###############################
 
         # loss
@@ -188,7 +188,7 @@ class CSNorm_Model(BaseModel):
         self.optimizer_G_aug.zero_grad()
 
         # forward
-        self.img_pred = self.netG(self.img_input, aug=True)
+        self.img_pred = self.netG(self.img_input_aug, aug=True)
         loss_back, l_ssim, l_amp = self.loss_forward_aug(self.img_pred, self.img_gt)
         loss_aug = loss_back + l_ssim + l_amp
         # backward

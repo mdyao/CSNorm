@@ -103,27 +103,8 @@ def main():
 
     #### create train and val dataloader
     dataset_ratio = 200  # enlarge the size of each epoch
-    best_psnr = 0
-    best_psnr_bi = 0
     for phase, dataset_opt in opt['datasets'].items():
-        if phase == 'train':
-            train_set = create_dataset(dataset_opt)
-            train_size = int(math.ceil(len(train_set) / dataset_opt['batch_size']))
-
-            total_iters = int(opt['train']['niter'])
-            total_epochs = int(math.ceil(total_iters / train_size))
-            if opt['dist']:
-                train_sampler = DistIterSampler(train_set, world_size, rank, dataset_ratio)
-                total_epochs = int(math.ceil(total_iters / (train_size * dataset_ratio)))
-            else:
-                train_sampler = None
-            train_loader = create_dataloader(train_set, dataset_opt, opt, train_sampler)
-            if rank <= 0:
-                logger.info('Number of train images: {:,d}, iters: {:,d}'.format(
-                    len(train_set), train_size))
-                logger.info('Total epochs needed: {:d} for iters {:,d}'.format(
-                    total_epochs, total_iters))
-        elif phase == 'val':
+        if phase == 'val':
             val_set = create_dataset(dataset_opt)
             val_loader = create_dataloader(val_set, dataset_opt, opt, None)
             if rank <= 0:
@@ -131,7 +112,6 @@ def main():
                     dataset_opt['name'], len(val_set)))
         else:
             raise NotImplementedError('Phase [{:s}] is not recognized.'.format(phase))
-    assert train_loader is not None
 
     #### create model
     model = create_model(opt)
