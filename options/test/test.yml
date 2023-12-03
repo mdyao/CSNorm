@@ -32,7 +32,7 @@ network_G:
 
 path:
   root: ./
-  pretrain_model_G: ./NAF_LOL.pth
+  pretrain_model_G: ./models/ckpts/NAF_LOL.pth
   strict_load: true
   resume_state: ~
 
