@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# [ICCV 2023:fire:] Generalized Lightness Adaptation with Channel Selective Normalization.
+# [ICCV 2023 :fire:] Generalized Lightness Adaptation with Channel Selective Normalization.
 
 [Mingde Yao](https://scholar.google.com/citations?user=fsE3MzwAAAAJ&hl=en)\*, [Jie Huang](https://huangkevinj.github.io/)\*, [Xin Jin](http://home.ustc.edu.cn/~jinxustc/), [Ruikang Xu](https://scholar.google.com/citations?user=PulrrscAAAAJ&hl=en), Shenglong Zhou, [Man Zhou](https://manman1995.github.io/), [Zhiwei Xiong](http://staff.ustc.edu.cn/~zwxiong/)
 
@@ -125,7 +125,7 @@ x = gate * lq_copy + (1-gate) * x
 
 
 ## :heart: Citing Us
-If you find this repository or our work useful, please consider giving a star :star: and citation :t-rex:, which would be greatly appreciated:
+If you find this repository or our work useful, please consider giving a star :star: and citation :t-rex: , which would be greatly appreciated:
 
 ```bibtex
 @inproceedings{yao2023csnorm,
