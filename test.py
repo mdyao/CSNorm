@@ -116,21 +116,19 @@ def main():
     #### create model
     model = create_model(opt)
 
-    #### resume training
-    if resume_state:
-        logger.info('Resuming training from epoch: {}, iter: {}.'.format(
-            resume_state['epoch'], resume_state['iter']))
+    # #### resume training
+    # if resume_state:
+    #     logger.info('Resuming training from epoch: {}, iter: {}.'.format(
+    #         resume_state['epoch'], resume_state['iter']))
+    #
+    #     start_epoch = resume_state['epoch']
+    #     current_step = resume_state['iter']
+    #     model.resume_training(resume_state)  # handle optimizers and schedulers
+    # else:
+    #     current_step = 0
+    #     start_epoch = 0
 
-        start_epoch = resume_state['epoch']
-        current_step = resume_state['iter']
-        model.resume_training(resume_state)  # handle optimizers and schedulers
-    else:
-        current_step = 0
-        start_epoch = 0
-
-    val_freq = opt['train']['val_freq']
-    #### training
-    logger.info('Start training from epoch: {:d}, iter: {:d}'.format(start_epoch, current_step))
+    #### test
     avg_psnr = 0.0
     idx = 0
     for val_data in val_loader:
@@ -146,24 +144,24 @@ def main():
         img_gt = visuals['img_gt'].numpy()
         
         ########################## save images for visualization###################
-        # img_input = img_input[::-1,:,:]
-        # img_pred1 = img_pred[::-1,:,:]
-        # img_gt1 = img_gt[::-1,:,:]
-        # 
-        # img_input = img_input.transpose(1,2,0)
-        # img_pred1 = img_pred1.transpose(1,2,0)
-        # img_gt1 = img_gt1.transpose(1,2,0)
+        img_input = img_input[::-1,:,:]
+        img_pred1 = img_pred[::-1,:,:]
+        img_gt1 = img_gt[::-1,:,:]
 
-        # from PIL import Image
+        img_input = img_input.transpose(1,2,0)
+        img_pred1 = img_pred1.transpose(1,2,0)
+        img_gt1 = img_gt1.transpose(1,2,0)
 
-        # img_pred1 = np.clip(img_pred1,0,1)
-        # Image.fromarray((img_pred1*255).astype(np.uint8)).save(os.path.join(opt['path']['val_images'], '%03d.png'%idx))
-        #
-        # img_input = np.clip(img_input,0,1)
-        # Image.fromarray((img_input*255).astype(np.uint8)).save(os.path.join(opt['path']['val_images'], '%03d_o.png'%idx))
-        #
-        # img_gt1 = np.clip(img_gt1,0,1)
-        # Image.fromarray((img_gt1*255).astype(np.uint8)).save(os.path.join(opt['path']['val_images'], '%03d_t.png'%idx))
+        from PIL import Image
+
+        img_pred1 = np.clip(img_pred1,0,1)
+        Image.fromarray((img_pred1*255).astype(np.uint8)).save(os.path.join(opt['path']['val_images'], '%03d.png'%idx))
+
+        img_input = np.clip(img_input,0,1)
+        Image.fromarray((img_input*255).astype(np.uint8)).save(os.path.join(opt['path']['val_images'], '%03d_i.png'%idx))
+
+        img_gt1 = np.clip(img_gt1,0,1)
+        Image.fromarray((img_gt1*255).astype(np.uint8)).save(os.path.join(opt['path']['val_images'], '%03d_t.png'%idx))
 
 
         def compute_psnr(img_orig, img_out, peak):

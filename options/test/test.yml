@@ -13,8 +13,10 @@ datasets:
   val:
     name: data_val
     mode: JSH_val
-    dataroot_gt: 'TESTDATA/GT' # path to validation Clean images
-    dataroot_lq: 'TESTDATA/LQ' # path to validation Noisy images
+#    dataroot_gt: './data/example' # path to validation Clean images
+#    dataroot_lq: './data/example' # path to validation Noisy images
+    dataroot_gt: './README' # path to validation Clean images
+    dataroot_lq: './README' # path to validation Noisy images
 
 #### network structures
 
