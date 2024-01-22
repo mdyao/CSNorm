@@ -130,14 +130,14 @@ class CSNorm_Model(BaseModel):
         return y_out
 
     def feed_data(self, data):
-        self.img_gt = data['gt_img'].to(self.device)  # GT
-        self.img_input = data['lq_img'].to(self.device)  # Noisy
-        self.img_input_aug = self.amp_aug(self.img_gt, self.img_input)  # Noisy
+        self.img_gt = data['gt_img'].to(self.device) 
+        self.img_input = data['lq_img'].to(self.device) 
+        self.img_input_aug = self.amp_aug(self.img_gt, self.img_input)  
 
     def feed_data_test(self, data):
-        # self.ref_L = data['LQ'].to(self.device)  # LQ
-        self.img_gt = data['gt_img'].to(self.device)  # GT
-        self.img_input = data['lq_img'].to(self.device)  # Noisy
+        # self.ref_L = data['LQ'].to(self.device)  
+        self.img_gt = data['gt_img'].to(self.device)  
+        self.img_input = data['lq_img'].to(self.device)
 
     def loss_forward(self,img, gt):
         loss = 1 * self.Back_rec(img, gt)
