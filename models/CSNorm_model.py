@@ -155,7 +155,7 @@ class CSNorm_Model(BaseModel):
 
     def optimize_parameters(self, step):
 
-        ############## optimizate parameters outside CSNorm ############################
+        ############## optimize parameters outside CSNorm ############################
         for k, v in self.netG.named_parameters():
             if k not in self.layer_aug:
                 v.requires_grad = True
@@ -178,7 +178,7 @@ class CSNorm_Model(BaseModel):
         self.optimizer_G.step()
 
 
-        ############## optimizate parameters inside CSNorm ############################
+        ############## optimize parameters inside CSNorm ############################
         for k, v in self.netG.named_parameters():
             if k in self.layer_aug:
                 v.requires_grad = True
