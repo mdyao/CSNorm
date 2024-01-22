@@ -123,6 +123,7 @@ lq_copy = torch.cat([getattr(self, 'CSN_' + str(i))(x[:,i,:,:][:,None,:,:]) for 
 x = gate * lq_copy + (1-gate) * x
 ```
 
+4. The 2-step training strategy is in https://github.com/mdyao/CSNorm/blob/main/models/CSNorm_model.py.
 
 ## :heart: Citing Us
 If you find this repository or our work useful, please consider giving a star :star: and citation :t-rex: , which would be greatly appreciated:
